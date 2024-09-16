@@ -6,47 +6,71 @@ public abstract class Bird {
     private String damage;
     private int level;
 
-    abstract String getName();
+    public Bird(String name, String color, int power, double speed, String damage, int level) {
+        this.name = name;
+        this.color = color;
+        this.power = power;
+        this.speed = speed;
+        this.damage = damage;
+        this.level = level;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getPower() {
+        return power;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
+    public String getDamage() {
+        return damage;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public abstract void attack();
 }
 
 class Red extends Bird {
-    String name = "Red";
-    String color = "red";
-    int power = 50;
-    double speed = 22.5;
-    String damage = "Medium";
-    int level = 1;
+    public Red() {
+        super("Red", "red", 30, 40.00, "Medium", 1);
+    }
 
     @Override
-    public String getName() {
-        return name;
+    public void attack() {
+        System.out.println("Red attack with medium damage");
     }
 }
 
 class Chuck extends Bird {
-    String name = "Chuck";
-    String color = "yellow";
-    int power = 20;
-    double speed = 50.3;
-    String damage = "Low";
-    int level = 1;
+    public Chuck() {
+        super("Chuck", "Yellow", 25, 80.05, "Medium", 1);
+    }
 
     @Override
-    public String getName() {
-        return name;
+    public void attack() {
+        System.out.println("Chuck attack with medium damage but very fast");
     }
 }
 
 class Bomb extends Bird {
-    String name = "Bomb";
-    String color = "black";
-    int power = 60;
-    double speed = 10.3;
-    String damage = "High";
-    int level = 1;
+    public Bomb() {
+        super("Bomb", "Black", 95, 20.00, "High", 1);
+    }
 
     @Override
-    public String getName() {
-        return name;
+    public void attack() {
+        System.out.println("Bomb attack with high damage but very slow");
     }
 }
